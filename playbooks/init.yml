@@ -1,0 +1,30 @@
+---
+- name: 
+  hosts: all
+  become: true
+  vars:
+    docker_users:
+      - panda
+      - vagrant
+    # docker_daemon_options:
+    #   insecure-registries : ["192.168.44.44:8082"]
+    # awscliconf_path: "/home/panda/"
+    # awscliconf_files_owner: "panda"
+    # awscliconf_files_group: "panda"
+    # awscliconf_files:
+    #   credentials:
+    #     - default:
+    #         aws_access_key_id: 'PUT_YOUR_AWS_ID_HERE'
+    #         aws_secret_access_key: 'PUT_YOUR_AWS_KEY_HERE'
+    #   config:
+    #     - default:
+    #         region: us-west-2
+    #         output: json
+
+  roles:
+    - user
+    - packages
+    - geerlingguy.docker
+    - christiangda.awscli
+    - christiangda.awscli_configure
+    - diodonfrost.terraform
